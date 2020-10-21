@@ -338,6 +338,9 @@ def default_transformer_epoch_optim_loop(
             # but this is not reflected in the torch type hints
             optimizer = lr_scheduler.optimizer  # type: ignore[attr-defined]
 
+    if logger is None:
+        logger = OptimLogger()
+
     if get_epoch_header is None:
         get_epoch_header = default_epoch_header
 
